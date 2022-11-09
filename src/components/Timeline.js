@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 
 const StyledTimeline = styled.div`
   flex: 1;
@@ -43,10 +43,10 @@ const StyledTimeline = styled.div`
       }
     }
   }
-`;
+`
 
 function Timeline(props) {
-  const playlistNames = Object.keys(props.playlists);
+  const playlistNames = Object.keys(props.playlists)
 
   //Statement
   //Retorno por expressão
@@ -54,26 +54,26 @@ function Timeline(props) {
     <StyledTimeline>
       <div>
         {playlistNames.map((playlistName) => {
-          const videos = props.playlists[playlistName];
+          const videos = props.playlists[playlistName]
           return (
             <section key={playlistName}>
               <h2>{playlistName}</h2>
               <div>
                 {videos.map((video) => {
                   return (
-                    <a key={ video.url } href={video.url}>
+                    <a key={video.url} href={video.url}>
                       <img src={video.thumb} />
                       <span>{video.title}</span>
                     </a>
-                  );
+                  )
                 })}
               </div>
             </section>
-          );
+          )
         })}
       </div>
     </StyledTimeline>
-  );
+  )
 }
 
-export default Timeline;
+export default Timeline

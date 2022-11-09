@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import config from "../config.json"
+import config from "../../config.json"
 
 const StyledHeader = styled.div`
   img {
@@ -7,8 +7,8 @@ const StyledHeader = styled.div`
     height: 80px;
     border-radius: 50%;
 }
+
 .user-info {
-    margin-top: 60px;
     display: flex;
     align-items: center;
     width: 100%;

@@ -1,8 +1,10 @@
 import config from "../config.json";
-import CSSReset from "../components/CSSReset";
-import Menu from "../components/Menu"
-import Header from "../components/Header";
-import Timeline from "../components/Timeline";
+import CSSReset from "../src/components/CSSReset";
+import Menu from "../src/components/Menu"
+import Banner from "../src/components/Banner";
+import Header from "../src/components/Header";
+import Timeline from "../src/components/Timeline";
+import Favorites from "../src/components/Favorites";
 
 function HomePage() {
   return (
@@ -10,8 +12,10 @@ function HomePage() {
     <CSSReset />
       <div>
         <Menu />
+        <Banner />
         <Header />
         <Timeline playlists={config.playlists} />
+        <Favorites favorites={config.favorites}/>
       </div>
     </>
   );

@@ -2,6 +2,18 @@
   "name": "Glaucielle Sá",
   "job": "JavaScript Developer Apprentice",
   "github": "glauciellesa",
+  "favorites": [
+    {
+      "chanel": "@kepowob",
+      "url": "https://www.youtube.com/kepowob",
+      "imgPerfil": "kevin-powell"
+    },
+    {
+      "chanel": "@kevin",
+      "url": "https://www.youtube.com/c/PortadosFundos",
+      "imgPerfil": "glauciellesa"
+    }
+  ],
   "playlists": {
     "games": [
       {
