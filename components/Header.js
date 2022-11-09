@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import config from "../../config.json"
+import config from "../config.json"
 
 const StyledHeader = styled.div`
   img {

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledTimeline = styled.div`
+const StyledTimeline = styled.div`
   flex: 1;
   width: 100%;
   padding: 16px;
@@ -56,12 +56,12 @@ function Timeline(props) {
         {playlistNames.map((playlistName) => {
           const videos = props.playlists[playlistName];
           return (
-            <section>
+            <section key={playlistName}>
               <h2>{playlistName}</h2>
               <div>
                 {videos.map((video) => {
                   return (
-                    <a href={video.url}>
+                    <a key={ video.url } href={video.url}>
                       <img src={video.thumb} />
                       <span>{video.title}</span>
                     </a>
