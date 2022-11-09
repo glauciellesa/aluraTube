@@ -1,12 +1,14 @@
 import styled from "styled-components"
 
 const StyledFavorites = styled.div`
+  padding: 0 32px;
+
   h2 {
     margin-bottom: 16px;
   }
+
   .profile {
     display: flex;
-    padding: 0 20px;
     gap: 20px;
     a {
       display: flex;
@@ -36,7 +38,7 @@ function Favorites(props) {
             <a key={favorite.url} href={favorite.url}>
               <img
                 alt="Perfil image "
-                src={`https://github.com/${favorite.imgPerfil}.png`}
+                src={`https://github.com/${favorite.imgProfile}.png`}
               />
               <span>{favorite.chanel}</span>
             </a>
