@@ -10,12 +10,14 @@ const StyledFavorites = styled.div`
   .profile {
     display: flex;
     gap: 20px;
+    padding-bottom: 30px;
     a {
       display: flex;
       gap: 5px;
       align-items: center;
       flex-direction: column;
       justify-content: baseline;
+      color: ${({ theme }) => theme.textColorBase || "#222222"};
     }
 
     img {

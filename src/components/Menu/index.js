@@ -1,12 +1,13 @@
 import styled from "styled-components"
 import Search from "./Search"
+import ToggleTheme from "./ToggleTheme"
 
 const StyledMenu = styled.header`
   display: flex;
   flex-direction: row;
   height: 60px;
   justify-content: space-between;
-  background-color: ${({ theme }) => theme.backgroundLevel1 || "#FFFFFF"};
+  background-color: ${({ theme }) => theme.backgroundLevel1 || "red"};
   border: 1px solid ${({ theme }) => theme.borderBase || "#e5e5e5"};
   align-items: center;
   padding: 0 16px;
@@ -33,6 +34,7 @@ export default function Menu({ filterValue, setfilter }) {
         <Logo />
       </div>
       <Search filterValue={filterValue} setfilter={setfilter} />
+      <ToggleTheme />
     </StyledMenu>
   )
 }
