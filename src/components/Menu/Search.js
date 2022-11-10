@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import playlists from "../../../config.json"
+import React from "react"
 
 const StyledSearch = styled.div`
   display: flex;
@@ -34,10 +34,18 @@ const StyledSearch = styled.div`
     }
   }
 `
-function Search(props) {
+
+function Search({ filterValue, setfilter }) {
+  const searchValue = filterValue
+  const setValue = setfilter
   return (
     <StyledSearch>
-      <input type="text" placeholder="Search" />
+      <input
+        type="text"
+        placeholder="Search"
+        onChange={(e) => setValue(e.target.value)}
+        value={searchValue}
+      />
       <button>🔎</button>
     </StyledSearch>
   )

@@ -1,3 +1,4 @@
+import React from "react"
 import config from "../config.json"
 import CSSReset from "../src/components/CSSReset"
 import Menu from "../src/components/Menu/index"
@@ -7,14 +8,19 @@ import Timeline from "../src/components/Timeline"
 import Favorites from "../src/components/Favorites"
 
 function HomePage() {
+  const [filterValue, setfilter] = React.useState("")
+
   return (
     <>
       <CSSReset />
       <div>
-        <Menu />
+        {/* Prop Drilling */}
+        <Menu filterValue={filterValue} setfilter={setfilter} />
         <Banner />
         <Header />
-        <Timeline playlists={config.playlists} />
+        <Timeline searchValue={filterValue} playlists={config.playlists}>
+          Conteúdo
+        </Timeline>
         <Favorites favorites={config.favorites} />
       </div>
     </>
