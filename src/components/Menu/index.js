@@ -4,7 +4,7 @@ import Search from "./Search"
 const StyledMenu = styled.header`
   display: flex;
   flex-direction: row;
-  height: 100px;
+  height: 60px;
   justify-content: space-between;
   background-color: ${({ theme }) => theme.backgroundLevel1 || "#FFFFFF"};
   border: 1px solid ${({ theme }) => theme.borderBase || "#e5e5e5"};

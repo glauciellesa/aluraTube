@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components"
 import config from "../../config.json"
 
 const StyledHeader = styled.div`
@@ -6,20 +6,27 @@ const StyledHeader = styled.div`
     width: 80px;
     height: 80px;
     border-radius: 50%;
-}
+  }
 
-.user-info {
+  .user-info {
     display: flex;
     align-items: center;
     width: 100%;
-    padding: 36px 32px;
+    padding: 16px 32px;
     gap: 16px;
   }
-`;
+`
+
+const StyledBanner = styled.div`
+  background-image: url(${config.bgImage});
+  background-position: 0 -240px;
+  height: 230px;
+`
 
 function Header() {
   return (
     <StyledHeader>
+      <StyledBanner />
       <section className="user-info">
         <img src={`https://github.com/${config.github}.png`} />
         <div>
@@ -28,7 +35,7 @@ function Header() {
         </div>
       </section>
     </StyledHeader>
-  );
+  )
 }
 
 export default Header
