@@ -1,4 +1,6 @@
+import { useContext } from "react"
 import styled from "styled-components"
+import { FilterContext } from "../contexts/FilterContext"
 
 const StyledTimeline = styled.div`
   flex: 1;
@@ -45,7 +47,8 @@ const StyledTimeline = styled.div`
   }
 `
 
-function Timeline({ searchValue, ...props }) {
+function Timeline(props) {
+  const { filterValue } = useContext(FilterContext)
   const playlistNames = Object.keys(props.playlists)
 
   //Statement
@@ -62,7 +65,7 @@ function Timeline({ searchValue, ...props }) {
                 {videos
                   .filter((video) => {
                     const titleNormalized = video.title.toLowerCase()
-                    const searchValueNormalized = searchValue.toLowerCase()
+                    const searchValueNormalized = filterValue.toLowerCase()
                     return titleNormalized.includes(searchValueNormalized)
                   })
                   .map((video) => {

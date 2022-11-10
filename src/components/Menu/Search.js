@@ -1,5 +1,6 @@
 import styled from "styled-components"
-import React from "react"
+import React, { useContext } from "react"
+import { FilterContext } from "../../contexts/FilterContext"
 
 const StyledSearch = styled.div`
   display: flex;
@@ -35,16 +36,16 @@ const StyledSearch = styled.div`
   }
 `
 
-function Search({ filterValue, setfilter }) {
-  const searchValue = filterValue
-  const setValue = setfilter
+function Search() {
+  const { filterValue, setFilter } = useContext(FilterContext)
+
   return (
     <StyledSearch>
       <input
         type="text"
         placeholder="Search"
-        onChange={(e) => setValue(e.target.value)}
-        value={searchValue}
+        onChange={(e) => setFilter(e.target.value)}
+        value={filterValue}
       />
       <button>🔎</button>
     </StyledSearch>
