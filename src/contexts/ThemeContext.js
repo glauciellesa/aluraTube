@@ -1,11 +1,18 @@
-import { createContext, useState } from "react"
+import { createContext, useEffect, useState } from "react"
 import { ThemeProvider } from "styled-components"
-import { lightTheme, darkTheme } from "../components/ThemeConfig"
+import { lightTheme, darkTheme } from "../themes/ThemeConfig"
 
 export const MyThemeContext = createContext()
 
 const MyThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState("light")
+  let currentTheme = "light"
+
+  const [theme, setTheme] = useState(currentTheme)
+
+  useEffect(() => {
+    setTheme(localStorage.getItem("theme"))
+  }, [])
+
   return (
     <MyThemeContext.Provider value={{ theme, setTheme }}>
       <ThemeProvider theme={theme == "light" ? lightTheme : darkTheme}>
