@@ -6,7 +6,6 @@ export const MyThemeContext = createContext()
 
 const MyThemeProvider = ({ children }) => {
   let currentTheme = "light"
-
   const [theme, setTheme] = useState(currentTheme)
 
   useEffect(() => {
