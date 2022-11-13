@@ -27,7 +27,6 @@ function useForm(formProps) {
 }
 function youTubeGetID(url) {
   const regExp = /v=([^#&?]*)$/
-  console.log(regExp)
   const match = regExp.exec(url)?.at(1)
   return match
 }
