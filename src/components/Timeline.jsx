@@ -60,7 +60,7 @@ function Timeline(props) {
           const videos = props.playlists[playlistName]
           return (
             <section key={playlistName}>
-              <h2>{playlistName}</h2>
+              <h2>{playlistNames}</h2>
               <div>
                 {videos
                   .filter((video) => {

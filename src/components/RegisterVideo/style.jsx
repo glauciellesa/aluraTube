@@ -26,6 +26,21 @@ export const StyledRegisterVideo = styled.div`
     border: none;
     cursor: pointer;
   }
+  .selectPlaylist {
+    border-radius: 2px;
+    border: 1px solid ${({ theme }) => theme.borderBase};
+    padding: 8px 10px;
+    margin-bottom: 10px;
+    outline: none;
+    background-color: ${({ theme }) => theme.backgroundBase};
+  }
+
+  option {
+    font-size: 100px;
+    color: red;
+    background-color: #ffffff;
+  }
+
   button[type="submit"] {
     background-color: red;
     padding: 8px 16px;
