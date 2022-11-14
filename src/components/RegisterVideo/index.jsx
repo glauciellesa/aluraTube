@@ -31,6 +31,13 @@ function youTubeGetID(url) {
   return match
 }
 
+function onSubmitFormData(e, registerForm) {
+  e.preventDefault()
+  console.log(registerForm.values)
+  setFormVisible(false)
+  registerForm.clearForm()
+}
+
 function RegisterVideo() {
   const registerForm = useForm({
     initialValues: {
@@ -47,14 +54,7 @@ function RegisterVideo() {
         +
       </button>
       {formVisible ? (
-        <form
-          onSubmit={(e) => {
-            e.preventDefault()
-            console.log(registerForm.values)
-            setFormVisible(false)
-            registerForm.clearForm()
-          }}
-        >
+        <form onSubmit={onSubmitFormData}>
           <div>
             <button
               type="button"
@@ -72,6 +72,7 @@ function RegisterVideo() {
             <input
               placeholder="URL (https//youtube...)"
               value={registerForm.values.url}
+              /* onblur={onBlur} */
               name="url"
               onChange={registerForm.handleChange}
             ></input>
