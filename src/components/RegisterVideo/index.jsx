@@ -17,7 +17,7 @@ function useForm(formProps) {
               )}/hqdefault.jpg`,
             }
           : {}
-      const playlists = setValues({ ...values, [name]: value, ...thumb })
+      setValues({ ...values, [name]: value, ...thumb })
     },
 
     clearForm: () => {
@@ -31,9 +31,9 @@ function getThumbnail(url) {
   return match
 }
 
-const PROJEXT_URL = "https://arbupvkclgayzquiusid.supabase.co"
+const PROJEXT_URL = "https://pdufmujcdvkrixflycfq.supabase.co"
 const API_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFyYnVwdmtjbGdheXpxdWl1c2lkIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njg0MTI3OTksImV4cCI6MTk4Mzk4ODc5OX0.H7IU2evIWH0SsF9WCn5Pa5nrW3yuejgQgcUIh55VVOU"
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkdWZtdWpjZHZrcml4Zmx5Y2ZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njg1MDgxNzAsImV4cCI6MTk4NDA4NDE3MH0.NgZQjB_sBVFH-Hmx5QR-63V0juQzhiJyEqgAiSGlKCk"
 
 const supabase = createClient(PROJEXT_URL, API_KEY)
 
@@ -60,7 +60,7 @@ function RegisterVideo() {
             e.preventDefault()
 
             supabase
-              .from("games")
+              .from("playlist")
               .insert({
                 title: registerForm.values.title,
                 url: registerForm.values.url,
@@ -73,7 +73,6 @@ function RegisterVideo() {
               .catch((err) => {
                 console.log(err)
               })
-            console.log("tipo", registerForm.values.playlist)
             setFormVisible(false)
             registerForm.clearForm()
           }}
@@ -101,8 +100,8 @@ function RegisterVideo() {
             ></input>
             <select
               className="selectPlaylist"
-              name="playlists"
-              id="playlists"
+              name="playlist"
+              id="playlist"
               onChange={registerForm.handleChange}
             >
               <option value="">Select playlist</option>

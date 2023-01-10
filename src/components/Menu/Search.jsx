@@ -8,7 +8,7 @@ const StyledSearch = styled.div`
   border: 1px solid ${({ theme }) => theme.borderBase || "red"};
   max-width: 425px;
   width: 100%;
-  border-radius: 2px;
+  border-radius: 30px;
   overflow: hidden;
 
   input {
@@ -17,7 +17,7 @@ const StyledSearch = styled.div`
     border: none;
     outline: none;
     color: ${({ theme }) => theme.textColorBase || "red"};
-    background-color: ${({ theme }) => theme.backgroundBase || "red"};
+    background-color: ${({ theme }) => theme.backgroundLevel1 || "red"};
   }
 
   button {
@@ -47,6 +47,7 @@ function Search() {
         onChange={(e) => setFilter(e.target.value)}
         value={filterValue}
       />
+
       <button>🔎</button>
     </StyledSearch>
   )

@@ -8,7 +8,7 @@ const supabase = createClient(PROJEXT_URL, API_KEY)
 export function videoService() {
   return {
     getAllVideos() {
-      return supabase.from("games").select("*")
+      return supabase.from("playlist").select("*")
     },
   }
 }

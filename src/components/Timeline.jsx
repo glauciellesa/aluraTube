@@ -48,8 +48,10 @@ const StyledTimeline = styled.div`
 `
 
 function Timeline(props) {
+  console.log("props", props.playlists)
   const { filterValue } = useContext(FilterContext)
   const playlistNames = Object.keys(props.playlists)
+  console.log("timeline", playlistNames)
 
   //Statement
   //Retorno por expressão

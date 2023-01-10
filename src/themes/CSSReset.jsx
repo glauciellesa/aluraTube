@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components"
 
 const CSSReset = createGlobalStyle`
   /* Reset */
@@ -22,6 +22,7 @@ const CSSReset = createGlobalStyle`
   }
   #__next {
     display: flex;
+    flex-direction: column;
     flex: 1;
   }
   /* Globals */
@@ -35,6 +36,6 @@ const CSSReset = createGlobalStyle`
       opacity: .5;
     }
   }
-`;
+`
 
 export default CSSReset
