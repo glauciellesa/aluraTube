@@ -6,32 +6,33 @@ const StyledSearch = styled.div`
   display: flex;
   flex-direction: row;
   border: 1px solid ${({ theme }) => theme.borderBase || "red"};
-  max-width: 425px;
+  max-width: 250px;
+  height: 25px;
   width: 100%;
   border-radius: 30px;
   overflow: hidden;
 
   input {
-    width: 80%;
+    width: 60%;
     padding: 4px 10px;
     border: none;
     outline: none;
-    color: ${({ theme }) => theme.textColorBase || "red"};
+    color: ${({ theme }) => theme.textColor || "red"};
     background-color: ${({ theme }) => theme.backgroundLevel1 || "red"};
   }
 
   button {
+    margin-left: 30px;
     flex: 1;
     cursor: pointer;
     border: none;
-    background-color: ${({ theme }) => theme.backgroundLevel2 || "red"};
+    background-color: ${({ theme }) => theme.backgroundLevel2 || "green"};
     box-shadow: 0 1px 0 rgb(0 0 0 / 10%);
-    border-left: 1px solid ${({ theme }) => theme.borderBase || "red"};
-    width: 40px;
-    height: 40px;
+    border-left: 1px solid ${({ theme }) => theme.borderBase || "green"};
+    width: 30px;
+
     @media (min-width: 600px) {
-      width: 64px;
-      height: 40px;
+      width: 60px;
     }
   }
 `

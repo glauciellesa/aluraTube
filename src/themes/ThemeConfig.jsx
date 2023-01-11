@@ -6,7 +6,7 @@ export const lightTheme = {
   backgroundLevel2: "#F0F0F0",
   borderBase: "#E5E5E5",
   textColorBase: "#222222",
-  textColor: "#696969",
+  textColor: "#222222",
 }
 
 export const darkTheme = {
