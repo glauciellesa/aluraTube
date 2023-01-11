@@ -46,6 +46,10 @@ const StyledToggle = styled.div`
   input[type="checkbox"]:checked + label:before {
     transform: translateX(100%);
   }
+  @media (max-width: 400px) {
+    font-size: 6px;
+    width: 30px;
+  }
 `
 
 function ToggleTheme() {
