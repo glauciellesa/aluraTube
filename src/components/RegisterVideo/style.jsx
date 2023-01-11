@@ -2,13 +2,13 @@ import styled from "styled-components"
 
 export const StyledRegisterVideo = styled.div`
   .add-video {
-    width: 50px;
-    height: 50px;
-    font-size: 20px;
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
     color: inherit;
     position: fixed;
-    bottom: 16px;
-    right: 16px;
+    bottom: 30px;
+    right: 30px;
     border: 0;
     background-color: red;
     border-radius: 50%;
@@ -16,60 +16,57 @@ export const StyledRegisterVideo = styled.div`
     cursor: pointer;
   }
   .close-modal {
+    font-size: 20px;
     width: 25px;
     height: 25px;
     position: absolute;
     top: 8px;
-    right: 16px;
+    right: 10px;
     color: inherit;
     background-color: transparent;
     border: none;
     cursor: pointer;
   }
   .selectPlaylist {
+    height: 35px;
     border-radius: 2px;
     border: 1px solid ${({ theme }) => theme.borderBase};
     padding: 8px 10px;
     margin-bottom: 10px;
     outline: none;
     background-color: ${({ theme }) => theme.backgroundBase};
-  }
-
-  option {
-    font-size: 100px;
-    color: red;
-    background-color: #ffffff;
+    color: ${({ theme }) => theme.textColor};
   }
 
   button[type="submit"] {
-    background-color: red;
+    background-color: #d93131;
     padding: 8px 16px;
     border: none;
     border-radius: 2px;
-    color: inherit;
+    color: ${({ theme }) => theme.textColor};
     cursor: pointer;
   }
+
   form {
     width: 100%;
-    padding: 5%;
-    background-color: rgba(0, 0, 0, 0.6);
+    padding: 2%;
     /* backdrop-filter: blur(0.2rem); */ /* Ver como add supports */
     position: fixed;
     inset: 0; /* top, botton, left, right */
     z-index: 100;
     display: flex;
+    align-items: center;
     justify-content: center;
     & > div {
       /* Primeira div dentro do formulário */
       flex: 1;
       border-radius: 8px;
-      max-width: 320px;
-      background-color: ${({ theme }) => theme.backgroundLevel2};
+      max-width: 400px;
+      background-color: ${({ theme }) => theme.backgroundLevel2 || "red"};
       display: flex;
       flex-direction: column;
       position: relative;
-      padding: 16px;
-      padding-top: 40px;
+      padding: 40px 8px;
     }
   }
   @supports (backdrop-filter: blur(1rem)) {
@@ -84,7 +81,7 @@ export const StyledRegisterVideo = styled.div`
     padding: 8px 10px;
     margin-bottom: 10px;
     outline: none;
-    color: #222222;
+    font-weight: 100;
     background-color: #f9f9f9;
     color: ${({ theme }) => theme.textColor};
     background-color: ${({ theme }) => theme.backgroundBase};
@@ -96,10 +93,24 @@ export const StyledRegisterVideo = styled.div`
     margin-bottom: 10px;
 
     img {
-      width: 40vw;
-      height: 30vh;
-      background-color: red;
-      object-fit: cover;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+  @media (max-width: 400px) {
+    form {
+      & > div {
+        max-width: 320px;
+      }
+      .thumbImg {
+        display: flex;
+        justify-content: center;
+        padding: 2px;
+        margin-bottom: 10px;
+      }
+      option {
+        background-color: red;
+      }
     }
   }
 `

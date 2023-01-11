@@ -6,7 +6,7 @@ const StyledSearch = styled.div`
   display: flex;
   flex-direction: row;
   border: 1px solid ${({ theme }) => theme.borderBase || "red"};
-  max-width: 250px;
+  max-width: 450px;
   height: 25px;
   width: 100%;
   border-radius: 30px;
@@ -26,13 +26,14 @@ const StyledSearch = styled.div`
     flex: 1;
     cursor: pointer;
     border: none;
-    background-color: ${({ theme }) => theme.backgroundLevel2 || "green"};
+    background-color: ${({ theme }) => theme.borderBase || "green"};
     box-shadow: 0 1px 0 rgb(0 0 0 / 10%);
     border-left: 1px solid ${({ theme }) => theme.borderBase || "green"};
-    width: 30px;
-
-    @media (min-width: 600px) {
-      width: 60px;
+    margin-left: 80px;
+    @media (max-width: 450px) {
+      max-width: 250px;
+      width: 100%;
+      margin-left: 40px;
     }
   }
 `
