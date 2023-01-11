@@ -27,7 +27,7 @@ const StyledHeader = styled.div`
     margin-top: 40px;
 
     p {
-      color: ${({ theme }) => theme.textColorBase};
+      color: ${({ theme }) => theme.textColor};
       font-weight: bold;
       font-size: 16px;
     }
@@ -36,8 +36,11 @@ const StyledHeader = styled.div`
 
 const StyledBanner = styled.div`
   background-image: url(${config.bgImage});
-  background-position: 0 -240px;
-  height: 230px;
+  background-position: -110px -127px;
+  height: 170px;
+  @media (max-width: 400px) {
+    background-position: -240px;
+  }
 `
 
 function Header() {

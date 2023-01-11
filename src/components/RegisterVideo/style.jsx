@@ -86,7 +86,7 @@ export const StyledRegisterVideo = styled.div`
     outline: none;
     color: #222222;
     background-color: #f9f9f9;
-    color: ${({ theme }) => theme.textColorBase};
+    color: ${({ theme }) => theme.textColor};
     background-color: ${({ theme }) => theme.backgroundBase};
   }
   .thumbImg {

@@ -17,7 +17,7 @@ const StyledFavorites = styled.div`
       align-items: center;
       flex-direction: column;
       justify-content: baseline;
-      color: ${({ theme }) => theme.textColorBase || "#222222"};
+      color: ${({ theme }) => theme.textColor || "red"};
     }
 
     img {
