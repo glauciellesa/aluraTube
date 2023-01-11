@@ -1,12 +1,14 @@
 import styled from "styled-components"
 import config from "../../config.json"
+import SocialMedia from "./SocialMedia"
 
 const StyledHeader = styled.div`
   background-color: ${({ theme }) => theme.backgroundLevel1};
   width: 100%;
+  line-height: 1.6;
   img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
   }
 
@@ -18,19 +20,10 @@ const StyledHeader = styled.div`
     gap: 16px;
   }
 
-  .gitHub-info {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px 32px;
-    margin-top: 40px;
-
-    p {
-      color: ${({ theme }) => theme.textColor};
-      font-weight: bold;
-      font-size: 16px;
-    }
+  p {
+    color: ${({ theme }) => theme.textColor};
+    font-weight: bold;
+    font-size: 16px;
   }
 `
 
@@ -38,6 +31,7 @@ const StyledBanner = styled.div`
   background-image: url(${config.bgImage});
   background-position: -110px -127px;
   height: 170px;
+
   @media (max-width: 400px) {
     background-position: -240px;
   }
@@ -52,6 +46,7 @@ function Header() {
         <div>
           <h2>{config.name} </h2>
           <p>{config.job}</p>
+          <SocialMedia />
         </div>
       </section>
     </StyledHeader>

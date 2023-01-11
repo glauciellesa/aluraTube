@@ -7,7 +7,7 @@ const StyledSearch = styled.div`
   flex-direction: row;
   border: 1px solid ${({ theme }) => theme.borderBase || "red"};
   max-width: 450px;
-  height: 25px;
+  height: 35px;
   width: 100%;
   border-radius: 30px;
   overflow: hidden;

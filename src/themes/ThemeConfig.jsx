@@ -6,6 +6,7 @@ export const lightTheme = {
   backgroundLevel2: "#e5e3e3",
   borderBase: "#E5E5E5",
   textColor: "#222222",
+  textColorAlt: "#444343",
 }
 
 export const darkTheme = {
@@ -14,6 +15,7 @@ export const darkTheme = {
   backgroundLevel2: "#313131",
   borderBase: " #383838",
   textColor: "#e5e5e5",
+  textColorAlt: "#c9c6c6",
 }
 
 export const GlobalStyles = createGlobalStyle`
