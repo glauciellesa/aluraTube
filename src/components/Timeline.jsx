@@ -48,10 +48,8 @@ const StyledTimeline = styled.div`
 `
 
 function Timeline(props) {
-  console.log("props", props.playlists)
   const { filterValue } = useContext(FilterContext)
   const playlistNames = Object.keys(props.playlists)
-  console.log("timeline", playlistNames)
 
   //Statement
   //Retorno por expressão
@@ -62,7 +60,7 @@ function Timeline(props) {
           const videos = props.playlists[playlistName]
           return (
             <section key={playlistName}>
-              <h2>{playlistNames}</h2>
+              <h2>{playlistName}</h2>
               <div>
                 {videos
                   .filter((video) => {
