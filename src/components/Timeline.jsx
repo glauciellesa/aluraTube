@@ -1,4 +1,6 @@
-import { useContext } from "react"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTrash } from "@fortawesome/free-brands-svg-icons"
+import { useContext, useState } from "react"
 import styled from "styled-components"
 import { FilterContext } from "../contexts/FilterContext"
 
@@ -20,6 +22,17 @@ const StyledTimeline = styled.div`
     max-width: 210px;
     height: auto;
   }
+
+  .RemoveVideo {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+    border: 0;
+    background-color: red;
+
+    cursor: pointer;
+  }
+
   section {
     width: 100%;
     padding: 0;
@@ -52,6 +65,16 @@ function Timeline(props) {
   const { filterValue } = useContext(FilterContext)
   const playlistNames = Object.keys(props.playlists)
 
+  const removeAction = async (id) => {
+    console.log("id", id)
+    /* try {
+    
+      await supabase.from("playlist").delete().eq("id", video.id)
+      props.setPlaylists(playlistNames.filter((id) => video.id != id))
+    } catch (error) {
+      console.log("error", error)
+    } */
+  }
   //Statement
   //Retorno por expressão
   return (
@@ -71,10 +94,18 @@ function Timeline(props) {
                   })
                   .map((video) => {
                     return (
-                      <a key={video.url} href={video.url}>
-                        <img src={video.thumb} />
-                        <span>{video.title}</span>
-                      </a>
+                      <div key={video.url}>
+                        <a href={video.url}>
+                          <img src={video.thumb} />
+                          <span>{video.title}</span>
+                        </a>
+                        <button
+                          className="RemoveVideo"
+                          onClick={() => removeAction(video.id)}
+                        >
+                          x
+                        </button>
+                      </div>
                     )
                   })}
               </div>

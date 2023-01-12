@@ -51,7 +51,9 @@ function HomePage() {
       <FilterProvider>
         <Menu />
         <Header />
-        <Timeline playlists={playlists}>Conteúdo</Timeline>
+        <Timeline playlists={playlists} setPlaylists={setPlaylists}>
+          Conteúdo
+        </Timeline>
       </FilterProvider>
       <Favorites favorites={config.favorites} />
       {/* FAzer uma verificação para adicionar os canais mais recorrentes como favorito */}
