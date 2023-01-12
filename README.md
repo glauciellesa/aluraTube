@@ -1,4 +1,4 @@
-# React Immersion Alura 2022 / Next.js
+# React Immersion Alura 2022
 
 # What is AluraTube?
 
