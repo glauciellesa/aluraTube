@@ -1,8 +1,8 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faTrash } from "@fortawesome/free-brands-svg-icons"
 import { useContext, useState } from "react"
 import styled from "styled-components"
 import { FilterContext } from "../contexts/FilterContext"
+import playlistService from "../services/playlistService"
+import RegisterVideo from "./RegisterVideo"
 
 const StyledTimeline = styled.div`
   flex: 1;
@@ -65,15 +65,13 @@ function Timeline(props) {
   const { filterValue } = useContext(FilterContext)
   const playlistNames = Object.keys(props.playlists)
 
-  const removeAction = async (id) => {
-    console.log("id", id)
-    /* try {
-    
-      await supabase.from("playlist").delete().eq("id", video.id)
-      props.setPlaylists(playlistNames.filter((id) => video.id != id))
-    } catch (error) {
-      console.log("error", error)
-    } */
+  const removeAction = (id, playlist) => {
+    playlistService.removeVideo(id).then((data) => {
+      const newPlaylist = props.playlists[playlist].filter((elem) => {
+        return elem.id !== id
+      })
+      props.setPlaylists({ ...props.playlists, [playlist]: newPlaylist })
+    })
   }
   //Statement
   //Retorno por expressão
@@ -82,6 +80,7 @@ function Timeline(props) {
       <div>
         {playlistNames.map((playlistName) => {
           const videos = props.playlists[playlistName]
+
           return (
             <section key={playlistName}>
               <h2>{playlistName}</h2>
@@ -95,16 +94,20 @@ function Timeline(props) {
                   .map((video) => {
                     return (
                       <div key={video.url}>
-                        <a href={video.url}>
-                          <img src={video.thumb} />
-                          <span>{video.title}</span>
-                        </a>
-                        <button
-                          className="RemoveVideo"
-                          onClick={() => removeAction(video.id)}
-                        >
-                          x
-                        </button>
+                        <section>
+                          <a href={video.url}>
+                            <img src={video.thumb} />
+                            <span>{video.title}</span>
+                          </a>
+                          <button
+                            className="RemoveVideo"
+                            onClick={() =>
+                              removeAction(video.id, video.playlist)
+                            }
+                          >
+                            x
+                          </button>
+                        </section>
                       </div>
                     )
                   })}
@@ -113,6 +116,7 @@ function Timeline(props) {
           )
         })}
       </div>
+      <RegisterVideo {...props} />
     </StyledTimeline>
   )
 }

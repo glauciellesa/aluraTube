@@ -5,7 +5,7 @@
 AluraTube is a YouTube-inspired platform where you can save your favorite videos used in your learning journey to become a developer. So we will put our favorite videos on it and we can also share it with friends who have common interests and goals.
 This project was developed in an immersion of Alura. This one was aimed at beginners in React with a focus on Next.js. The project is being developed under the guidance of Alura's instructor Mario Souto with the participation of developer Nayanne Lopes and CEO of Alura, Paulo Silveira.
 
-# Technologies 🏷️:
+# Technologies 🏷️
 
 ![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
@@ -23,7 +23,7 @@ This project was developed in an immersion of Alura. This one was aimed at begin
 
 To use the application, just access this link. No login required, some of my favorite videos are shown on the application page.
 
-** To register new videos, simply: **
+**To register new videos, simply:**
 
 1. Click on the button in the lower right corner of the screen;
 2. Enter the name of the video;
@@ -31,7 +31,7 @@ To use the application, just access this link. No login required, some of my fav
 4. Select one of the three existing playlists;
 5. Click "Register" to save it in the specified playlist.
 
-# Funcionalidades 💫:
+# Funcionalidades 💫
 
 - Dark and light mode
 - Real-time preview
@@ -47,5 +47,6 @@ To use the application, just access this link. No login required, some of my fav
 
 - Automatic screen refresh as soon as a podcast is saved
 - Remove video from interface
+- Implement fullscreen mode
 - Log in for the list to be made according to user preferences.
 - Code refactoring.

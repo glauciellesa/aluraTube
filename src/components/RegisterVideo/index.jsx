@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { StyledRegisterVideo } from "./style"
-import { createClient } from "@supabase/supabase-js"
+import playlistService from "../../services/playlistService"
 
 function useForm(formProps) {
   const [values, setValues] = useState(formProps.initialValues)
@@ -31,13 +31,7 @@ function getThumbnail(url) {
   return match
 }
 
-const PROJEXT_URL = "https://pdufmujcdvkrixflycfq.supabase.co"
-const API_KEY =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBkdWZtdWpjZHZrcml4Zmx5Y2ZxIiwicm9sZSI6ImFub24iLCJpYXQiOjE2Njg1MDgxNzAsImV4cCI6MTk4NDA4NDE3MH0.NgZQjB_sBVFH-Hmx5QR-63V0juQzhiJyEqgAiSGlKCk"
-
-const supabase = createClient(PROJEXT_URL, API_KEY)
-
-function RegisterVideo() {
+function RegisterVideo(props) {
   const registerForm = useForm({
     initialValues: {
       title: "",
@@ -58,17 +52,24 @@ function RegisterVideo() {
         <form
           onSubmit={(e) => {
             e.preventDefault()
+            const video = {
+              title: registerForm.values.title,
+              url: registerForm.values.url,
+              thumb: registerForm.values.thumb,
+              playlist: registerForm.values.playlist,
+            }
+            playlistService
+              .addVideo(video)
+              .then(({ data }) => {
+                const newPlaylist = [
+                  ...props.playlists[registerForm.values.playlist],
+                  ...data,
+                ]
 
-            supabase
-              .from("playlist")
-              .insert({
-                title: registerForm.values.title,
-                url: registerForm.values.url,
-                thumb: registerForm.values.thumb,
-                playlist: registerForm.values.playlist,
-              })
-              .then((e) => {
-                console.log(e)
+                props.setPlaylists({
+                  ...props.playlists,
+                  [registerForm.values.playlist]: newPlaylist,
+                })
               })
               .catch((err) => {
                 console.log(err)
