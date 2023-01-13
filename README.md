@@ -34,19 +34,17 @@ To use the application, just access this link. No login required, some of my fav
 # Funcionalidades 💫
 
 - Dark and light mode
-- Real-time preview
 - Responsive
-- List of videos separated by category Games | Frontend | Internal process
+- List of videos separated by category Games | Front-end | Back-end
 - Search filter
-- Choose category when adding a podcast
+- Choose category when adding a video
 - Save video in Supabase database including their category
 - Video cover preview before saving to timeline
-- Being able to remove podcast from the database through the interface
+- Being able to remove video from the database through the interface
+- Automatic screen refresh as soon as a video is saved
 
-# Implement in the future ⏱️
+# Future features ⏱️
 
-- Automatic screen refresh as soon as a podcast is saved
-- Remove video from interface
 - Implement fullscreen mode
 - Log in for the list to be made according to user preferences.
 - Code refactoring.
