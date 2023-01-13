@@ -6,11 +6,8 @@ AluraTube is a YouTube-inspired platform where you can save your favorite videos
 This project was developed in an immersion of Alura. This one was aimed at beginners in React with a focus on Next.js. The project is being developed under the guidance of Alura's instructor Mario Souto with the participation of developer Nayanne Lopes and CEO of Alura, Paulo Silveira.
 
 <p align="center">
-<img src="./src/video/aluraTube.gif" width="50%" alt="Glaucielle's card">
+<img src="./src/video/aluraTube.gif" width="100%" alt="Glaucielle's card">
 
-</p>
- <p align="center">
-<img src="./src/video/aluraTubeCel.gif" width="100%" alt="Glaucielle's card">
 </p>
 
 # Technologies 🏷️
