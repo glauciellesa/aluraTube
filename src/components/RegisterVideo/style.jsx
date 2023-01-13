@@ -4,16 +4,19 @@ export const StyledRegisterVideo = styled.div`
   .add-video {
     width: 40px;
     height: 40px;
-    font-size: 14px;
+    font-size: 30px;
     color: inherit;
     position: fixed;
     bottom: 30px;
     right: 30px;
     border: 0;
-    background-color: red;
+    background-color: #ea0909;
     border-radius: 50%;
     z-index: 99;
     cursor: pointer;
+    :hover {
+      background-color: red;
+    }
   }
   .close-modal {
     font-size: 20px;

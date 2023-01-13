@@ -22,23 +22,41 @@ const StyledTimeline = styled.div`
     max-width: 210px;
     height: auto;
   }
+  .divRemoveVideo {
+    display: flex;
+    justify-content: flex-end;
+  }
 
-  .RemoveVideo {
+  .removeVideo {
+    position: absolute;
+    right: 0;
     width: 20px;
     height: 20px;
     font-size: 20px;
     border: 0;
-    background-color: red;
-
+    background-color: #ea0909;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
     cursor: pointer;
-  }
 
-  section {
+    :hover {
+      background-color: red;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+    }
+  }
+  .cardVideo {
+    position: relative;
+  }
+  .containerPlaylists {
     width: 100%;
     padding: 0;
     overflow: hidden;
     padding: 16px;
-    div {
+
+    .videos {
       width: calc(100vw - 16px * 4);
       display: grid;
       grid-gap: 16px;
@@ -66,6 +84,12 @@ function Timeline(props) {
   const playlistNames = Object.keys(props.playlists)
 
   const removeAction = (id, playlist) => {
+    if (confirm("Are you sure to do this?")) {
+      remove(id, playlist)
+    }
+  }
+
+  const remove = (id, playlist) => {
     playlistService.removeVideo(id).then((data) => {
       const newPlaylist = props.playlists[playlist].filter((elem) => {
         return elem.id !== id
@@ -73,49 +97,47 @@ function Timeline(props) {
       props.setPlaylists({ ...props.playlists, [playlist]: newPlaylist })
     })
   }
+
   //Statement
   //Retorno por expressão
   return (
     <StyledTimeline>
-      <div>
-        {playlistNames.map((playlistName) => {
-          const videos = props.playlists[playlistName]
+      {playlistNames.map((playlistName) => {
+        const videos = props.playlists[playlistName]
 
-          return (
-            <section key={playlistName}>
-              <h2>{playlistName}</h2>
-              <div>
-                {videos
-                  .filter((video) => {
-                    const titleNormalized = video.title.toLowerCase()
-                    const searchValueNormalized = filterValue.toLowerCase()
-                    return titleNormalized.includes(searchValueNormalized)
-                  })
-                  .map((video) => {
-                    return (
-                      <div key={video.url}>
-                        <section>
-                          <a href={video.url}>
-                            <img src={video.thumb} />
-                            <span>{video.title}</span>
-                          </a>
-                          <button
-                            className="RemoveVideo"
-                            onClick={() =>
-                              removeAction(video.id, video.playlist)
-                            }
-                          >
-                            x
-                          </button>
-                        </section>
-                      </div>
-                    )
-                  })}
-              </div>
-            </section>
-          )
-        })}
-      </div>
+        return (
+          <section key={playlistName} className="containerPlaylists">
+            <h2>{playlistName}</h2>
+            <div className="videos">
+              {videos
+                .filter((video) => {
+                  const titleNormalized = video.title.toLowerCase()
+                  const searchValueNormalized = filterValue.toLowerCase()
+                  return titleNormalized.includes(searchValueNormalized)
+                })
+                .map((video) => {
+                  return (
+                    <div key={video.url} className="containerVideo">
+                      <section className="cardVideo">
+                        <button
+                          className="removeVideo"
+                          onClick={() => removeAction(video.id, video.playlist)}
+                        >
+                          x
+                        </button>
+                        <a href={video.url}>
+                          <img src={video.thumb} />
+                          <span>{video.title}</span>
+                        </a>
+                      </section>
+                    </div>
+                  )
+                })}
+            </div>
+          </section>
+        )
+      })}
+
       <RegisterVideo {...props} />
     </StyledTimeline>
   )
