@@ -9,17 +9,45 @@ const StyledTimeline = styled.div`
   width: 100%;
   padding: 16px;
   overflow: hidden;
+  .containerPlaylists {
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    padding: 16px;
+    .videos {
+      width: calc(100vw - 16px * 4);
+      padding-bottom: 30px;
+      display: grid;
+      grid-gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(200px, 1fr);
+      overflow-x: scroll;
+      scroll-snap-type: x mandatory;
+      a {
+        scroll-snap-align: start;
+        padding-bottom: 20px;
+        span {
+          padding-top: 8px;
+          display: block;
+          padding-right: 24px;
+          color: ${({ theme }) => theme.textColor || "red"};
+        }
+      }
+    }
+  }
+
   h2 {
     font-size: 16px;
     margin-bottom: 16px;
     text-transform: capitalize;
   }
   img {
+    max-width: 210px;
     aspect-ratio: 16/9;
     font-weight: 500;
     object-fit: cover;
     width: 100%;
-    max-width: 210px;
     height: auto;
   }
   .divRemoveVideo {
@@ -49,32 +77,11 @@ const StyledTimeline = styled.div`
   }
   .cardVideo {
     position: relative;
+    width: fit-content;
   }
-  .containerPlaylists {
-    width: 100%;
-    padding: 0;
-    overflow: hidden;
-    padding: 16px;
 
-    .videos {
-      width: calc(100vw - 16px * 4);
-      display: grid;
-      grid-gap: 16px;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-      grid-auto-flow: column;
-      grid-auto-columns: minmax(200px, 1fr);
-      overflow-x: scroll;
-      scroll-snap-type: x mandatory;
-      a {
-        scroll-snap-align: start;
-        padding-bottom: 20px;
-        span {
-          padding-top: 8px;
-          display: block;
-          padding-right: 24px;
-          color: ${({ theme }) => theme.textColor || "red"};
-        }
-      }
+  @media (min-width: 600px) {
+    img {
     }
   }
 `
@@ -117,19 +124,17 @@ function Timeline(props) {
                 })
                 .map((video) => {
                   return (
-                    <div key={video.url} className="containerVideo">
-                      <section className="cardVideo">
-                        <button
-                          className="removeVideo"
-                          onClick={() => removeAction(video.id, video.playlist)}
-                        >
-                          x
-                        </button>
-                        <a href={video.url}>
-                          <img src={video.thumb} />
-                          <span>{video.title}</span>
-                        </a>
-                      </section>
+                    <div key={video.url} className="cardVideo">
+                      <button
+                        className="removeVideo"
+                        onClick={() => removeAction(video.id, video.playlist)}
+                      >
+                        x
+                      </button>
+                      <a href={video.url}>
+                        <img src={video.thumb} />
+                        <span>{video.title}</span>
+                      </a>
                     </div>
                   )
                 })}
