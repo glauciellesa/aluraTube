@@ -95,7 +95,6 @@ function RegisterVideo(props) {
             <input
               placeholder="URL (https//youtube...)"
               value={registerForm.values.url}
-              /* onblur={onBlur} */
               name="url"
               onChange={registerForm.handleChange}
             ></input>
@@ -111,11 +110,13 @@ function RegisterVideo(props) {
               <option value="back-end">Back-end</option>
             </select>
             <div className="thumbImg">
-              <img
-                src={`https://img.youtube.com/vi/${getThumbnail(
-                  registerForm.values.url,
-                )}/hqdefault.jpg`}
-              ></img>
+              {registerForm.values.url ? (
+                <img
+                  src={`https://img.youtube.com/vi/${getThumbnail(
+                    registerForm.values.url,
+                  )}/hqdefault.jpg`}
+                ></img>
+              ) : null}
             </div>
             <button type="submit"> Register </button>
           </div>
