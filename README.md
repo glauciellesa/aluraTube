@@ -36,7 +36,7 @@ To use the application, just access this link. No login required, some of my fav
 4. Select one of the three existing playlists;
 5. Click "Register" to save it in the specified playlist.
 
-# Funcionalidades 💫
+# Functionalities 💫
 
 - Dark and light mode
 - Responsive
