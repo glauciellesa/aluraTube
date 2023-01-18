@@ -4,6 +4,7 @@
 
 AluraTube is a YouTube-inspired platform where you can save your favorite videos used in your learning journey to become a developer. So we will put our favorite videos on it and we can also share it with friends who have common interests and goals.
 This project was developed in an immersion of Alura. This one was aimed at beginners in React with a focus on Next.js. The project is being developed under the guidance of Alura's instructor Mario Souto with the participation of developer Nayanne Lopes and CEO of Alura, Paulo Silveira.
+In this project I learned to use Context - React, I understood well about grid, flexbox, box model and how to reset to border-box. In addition to working on and implementing responsive web principles including proper use of media queries.
 
 <p align="center">
 <img src="./src/video/aluraTube.gif" width="100%" alt="Glaucielle's card">
